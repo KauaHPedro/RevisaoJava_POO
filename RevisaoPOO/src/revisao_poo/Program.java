@@ -3,28 +3,50 @@ package revisao_poo;
 import java.util.Locale;
 import java.util.Scanner;
 import entities.*;
-import utilitaries.Calculator;
-import utilitaries.CurrencyConverter;
 
 public class Program {
-
 	public static void main(String[] args) {
-		
+
 		Locale.setDefault(Locale.US);
-		
 		Scanner sc = new Scanner(System.in);
-		
-		System.out.print("Digite a cotação do Dólar: ");
-		double cotacao = sc.nextDouble();
-		
-		System.out.print("Quantos dólares serão comprados? ");
-		double qntd = sc.nextDouble();
-		
-		System.out.println("Valor a ser pago em reais: " + 
-		CurrencyConverter.dollarToReal(cotacao, qntd));
-		
-		sc.close();
+		BankAccount b = null;
 
-	}
+		System.out.print("Enter account number: ");
+		int number = sc.nextInt();
+		sc.nextLine();
+		System.out.print("Enter account holder: ");
+		String holder = sc.nextLine();
+		System.out.print("Is there an initial deposit (y/n)? ");
+		String initial = sc.nextLine().toLowerCase();
 
-}
+		while (!initial.equals("y") && !initial.equals("n")) {
+			System.out.print("Invalid choice! Try again: ");
+			initial = sc.nextLine().toLowerCase();
+		}
+
+			if (initial.equals("y")) {
+				System.out.print("Enter initial deposit value: ");
+				double value = sc.nextDouble();
+				b = new BankAccount(holder, value, number);
+			} else {
+				b = new BankAccount(holder, number);
+			} 
+
+			System.out.println("Account data: ");
+			System.out.println(b);
+
+			System.out.print("Enter a deposit value: ");
+			b.deposit(sc.nextDouble());
+
+			System.out.println("Updated account data: ");
+			System.out.println(b);
+
+			System.out.print("Enter a withdraw value: ");
+			b.withdraw(sc.nextDouble());
+
+			System.out.println("Updated account data: ");
+			System.out.println(b);
+
+			sc.close();
+		}
+	}	

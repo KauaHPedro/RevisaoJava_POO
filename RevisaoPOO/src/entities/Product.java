@@ -6,6 +6,17 @@ public class Product {
 	private double price;
 	private int quantity;
 	
+	public Product(String name, double price, int quantity) {
+		this.name = name;
+		this.price = price;
+		this.quantity = quantity;
+	}
+	
+	public Product(String name, double price) {
+		this.name = name;
+		this.price = price;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -21,9 +32,6 @@ public class Product {
 	public int getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
 	
 	public double totalValueInStock() {
 		return quantity * price;
@@ -32,6 +40,7 @@ public class Product {
 	public void addProducts(int quantity) {
 		this.quantity += quantity;
 	}
+	
 	
 	public void removeProducts(int quantity) {
 		if (this.quantity >= quantity) {
