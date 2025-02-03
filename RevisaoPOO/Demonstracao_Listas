@@ -1,0 +1,27 @@
+List<String> lista = new ArrayList<String>();
+		
+		lista.add("Kauã");
+		lista.add("Maria");
+		lista.add("Bob");
+		lista.add("Alex");
+		lista.add(2, "Marcos");
+		lista.add("Kauã");
+		
+		lista.removeIf(nomes -> nomes.charAt(0) == 'B');
+		
+		for(String nome : lista) {
+			System.out.println(nome);
+		}
+		
+		System.out.println("-------------------------------------");
+		
+		
+		System.out.println(lista.indexOf("Kauã"));
+		
+		List<String> result = lista.stream().filter(nomes -> nomes.charAt(0) == 'A').collect
+				(Collectors.toList());
+		
+		String teste = lista.stream().filter(nomes -> nomes.charAt(0) == 'K').findFirst()
+				.orElse(null);
+		
+		System.out.println(teste);
