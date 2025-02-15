@@ -13,5 +13,10 @@ public class ConversoresDataHora {
 		DateTimeFormatter fmt2 = DateTimeFormatter.ofPattern("MM/yyyy");
 		return fmt2;
 	}
+	
+	public static DateTimeFormatter diaMesAnoHora() {
+		DateTimeFormatter fmt3 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+		return fmt3;
+	}
 
 }
