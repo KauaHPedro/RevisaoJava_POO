@@ -4,10 +4,12 @@ public class OrderItem {
 	
 	private Integer quantity;
 	private Product product;
+	private Double price; //Preço no momento da compra
 	
 	public OrderItem(Integer quantity, Product product) {
 		this.quantity = quantity;
 		this.product = product;
+		this.price = product.getPrice();
 	}
 
 	public Integer getQuantity() {
@@ -19,7 +21,7 @@ public class OrderItem {
 	}
 
 	public Double getPrice() {
-		return product.getPrice();
+		return price;
 	}
 
 	public Double getTotalPrice() {
@@ -33,10 +35,11 @@ public class OrderItem {
 
 	public void setProduct(Product product) {
 		this.product = product;
+		this.price = product.getPrice();
 	}
 
 	public Double subTotal() {
-		return quantity * product.getPrice();
+		return quantity * price;
 	}
 	
 	@Override
