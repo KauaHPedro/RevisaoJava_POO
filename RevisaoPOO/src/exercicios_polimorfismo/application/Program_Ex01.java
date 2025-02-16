@@ -1,9 +1,12 @@
-package exercicios_polimorfismo;
+package exercicios_polimorfismo.application;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
+
+import exercicios_polimorfismo.entities.Employee;
+import exercicios_polimorfismo.entities.OutsourcedEmployee;
 
 public class Program_Ex01 {
 
